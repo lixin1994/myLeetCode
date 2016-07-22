@@ -10,35 +10,26 @@ def mergeTwoLists(l1, l2):
     :type l2: ListNode
     :rtype: ListNode
     """
-    if l1 == None:
-        return l2
-    elif l2 == None:
-        return l1
-    result = l2
-    bef = None
-    while l1 != None:
-
-        if l1.val <= l2.val and bef == None:
-            nxt = l1.next
-            l1.next = l2
-            result = l1
-            bef = l1
-            l1 = nxt
-        elif l1.val > l2.val and bef == None:
-            bef = l2
-        elif bef.val <= l1.val and l2 == None:
-            bef.next = l1
-            break
-        elif bef.val <= l1.val <= l2.val:
-            nxt = l1.next
-            bef.next = l1
-            l1.next = l2
-            bef = l1
-            l1 = nxt
+    def cont(cur, l1 ,l2):
+        if l1 is None:
+            cur.next = l2
+            return
+        if l2 is None:
+            cur.next = l1
+            return
+        if l1.val <= l2.val:
+            cur.next = l1
+            cont(cur.next, l1.next, l2)
         else:
-            l2 = l2.next
-            bef = bef.next
-    return result
+            cur.next = l2
+            cont(cur.next, l1, l2.next)
+    head = ListNode(0)
+    cur = head
+    cont(cur, l1, l2)
+    return head.next
+
+
+
 
 a = ListNode(2)
 b = ListNode(1)
