@@ -1,7 +1,4 @@
-a = 1
-b = 2
+from collections import deque
 
-a, b = b, a
-
+a = [0 for i in range(0,10)]
 print(a)
-print(b)
