@@ -1,4 +1,3 @@
 from collections import deque
 
-a = [0 for i in range(0,10)]
-print(a)
+dct = dict(zip([12,3,1,2],[0,1,2,3])).items()
