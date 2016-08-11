@@ -1,4 +1,4 @@
-def searchMatrix(self, matrix, target):
+def searchMatrix( matrix, target):
     """
     :type matrix: List[List[int]]
     :type target: int
@@ -17,3 +17,4 @@ def searchMatrix(self, matrix, target):
             return BSearch(matrix, target, start, mid - 1)
     num = len(matrix) * len(matrix[0])
     return BSearch(matrix, target, 0, num - 1)
+print(searchMatrix([[1,   3,  5,  7],[10, 11, 16, 20],[23, 30, 34, 50]], 1))
